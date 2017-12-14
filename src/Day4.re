@@ -23,7 +23,7 @@ let isValidAnagramPassword = (str: string) : bool => {
   open StringSet;
   let charSortedWords =
     List.map(
-      (word) => charsToString(List.sort(Char.compare, charsOfString(word))),
+      (word) => stringOfChars(List.sort(Char.compare, charsOfString(word))),
       wordsOfString(str)
     );
   List.length(of_list(charSortedWords) |> elements) === List.length(charSortedWords)

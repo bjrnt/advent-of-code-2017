@@ -9,7 +9,7 @@ let parse = (str) => {
     | ['{', ...tl] => parseGroup(tl, depth + 1, score, garbageCount)
     | [',', ...tl] => parseGroup(tl, depth, score, garbageCount)
     | ['<', ...tl] => parseGarbage(tl, false, depth, score, garbageCount)
-    | _ => failwith("Failed on" ++ charsToString(chars))
+    | _ => failwith("Failed on" ++ stringOfChars(chars))
     }
   and parseGarbage = (chars, ignoreNext, depth, score, garbageCount) =>
     if (ignoreNext) {
@@ -19,7 +19,7 @@ let parse = (str) => {
       | ['>', ...tl] => parseGroup(tl, depth, score, garbageCount)
       | ['!', ...tl] => parseGarbage(tl, true, depth, score, garbageCount)
       | [_, ...tl] => parseGarbage(tl, false, depth, score, garbageCount + 1)
-      | _ => failwith("Failed on" ++ charsToString(chars))
+      | _ => failwith("Failed on" ++ stringOfChars(chars))
       }
     };
   parseGroup(List.tl(chars), 1, 0, 0)

@@ -82,7 +82,7 @@ function parse(str) {
                   
                 }
               } else {
-                return Pervasives.failwith("Failed on" + Utils$AdventOfCode.charsToString(chars$1));
+                return Pervasives.failwith("Failed on" + Utils$AdventOfCode.stringOfChars(chars$1));
               }
             };
           }
@@ -95,7 +95,7 @@ function parse(str) {
         exit = 1;
       }
       if (exit === 1) {
-        return Pervasives.failwith("Failed on" + Utils$AdventOfCode.charsToString(chars));
+        return Pervasives.failwith("Failed on" + Utils$AdventOfCode.stringOfChars(chars));
       }
       
     };

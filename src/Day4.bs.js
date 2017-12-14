@@ -27,7 +27,7 @@ function countValidPasswords(validator, lines) {
 
 function isValidAnagramPassword(str) {
   var charSortedWords = List.map((function (word) {
-          return Utils$AdventOfCode.charsToString(List.sort(Char.compare, Utils$AdventOfCode.charsOfString(word)));
+          return Utils$AdventOfCode.stringOfChars(List.sort(Char.compare, Utils$AdventOfCode.charsOfString(word)));
         }), Utils$AdventOfCode.wordsOfString(str));
   return +(List.length(Curry._1(StringSet[/* elements */19], Curry._1(StringSet[/* of_list */25], charSortedWords))) === List.length(charSortedWords));
 }
