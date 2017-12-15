@@ -152,4 +152,4 @@ exports.toAsciiCodes = toAsciiCodes;
 exports.inputSuffix  = inputSuffix;
 exports.toHex        = toHex;
 exports.hash         = hash;
-/* No side effect */
+/* Utils-AdventOfCode Not a pure module */

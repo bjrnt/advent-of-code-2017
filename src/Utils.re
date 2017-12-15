@@ -39,3 +39,16 @@ let remember = (pred: ('a, 'a) => bool, reference: ref('a), nextValue: 'a) => {
   };
   nextValue
 };
+
+let decToBin: int => string = [%bs.raw
+{|
+function(s) {
+  let result = s.toString(2);
+  while(result.length < 32) {
+    result = "0" + result;
+  }
+  return result;
+}
+|}
+];
+

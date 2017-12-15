@@ -119,4 +119,4 @@ function test(str, expected, expectedGarbage) {
 
 exports.parse = parse;
 exports.test  = test;
-/* No side effect */
+/* Utils-AdventOfCode Not a pure module */

@@ -90,6 +90,16 @@ function remember(pred, reference, nextValue) {
   return nextValue;
 }
 
+var decToBin = (
+function(s) {
+  let result = s.toString(2);
+  while(result.length < 32) {
+    result = "0" + result;
+  }
+  return result;
+}
+);
+
 exports.splitString   = splitString;
 exports.linesOfString = linesOfString;
 exports.wordsOfString = wordsOfString;
@@ -101,4 +111,5 @@ exports.isSome        = isSome;
 exports.expect        = expect;
 exports.$great$great  = $great$great;
 exports.remember      = remember;
-/* No side effect */
+exports.decToBin      = decToBin;
+/* decToBin Not a pure module */

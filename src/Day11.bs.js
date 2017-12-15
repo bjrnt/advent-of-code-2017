@@ -151,4 +151,4 @@ exports.walk               = walk;
 exports.stepsOfString      = stepsOfString;
 exports.farthestDistance   = farthestDistance;
 exports.finalDistance      = finalDistance;
-/* No side effect */
+/* Utils-AdventOfCode Not a pure module */
