@@ -4,9 +4,10 @@ let linesOfString = splitString("\n");
 
 let wordsOfString = splitString(" ");
 
-[@bs.val] external native_charsOfString : (string) => array(char) = "Array.from";
-
-let charsOfString = s => native_charsOfString(s) |> Array.to_list;
+let charsOfString = (s) => {
+  let rec exp = (i, l) => i < 0 ? l : exp(i - 1, [s.[i], ...l]);
+  exp(String.length(s) - 1, [])
+};
 
 let stringOfChars = (chars: list(char)) : string =>
   List.map(String.make(1), chars) |> String.concat("");
@@ -41,7 +42,7 @@ let remember = (pred: ('a, 'a) => bool, reference: ref('a), nextValue: 'a) => {
 };
 
 let decToBin: int => string = [%bs.raw
-{|
+  {|
 function(s) {
   let result = s.toString(2);
   while(result.length < 32) {
@@ -52,3 +53,10 @@ function(s) {
 |}
 ];
 
+let loadInput: string => string = [%bs.raw
+  {|
+  function (filename) {
+    return require('fs').readFileSync(`${__dirname}/inputs/${filename}.txt`).toString().trim();
+  }
+|}
+];
