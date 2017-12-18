@@ -5,6 +5,7 @@ var List        = require("bs-platform/lib/js/list.js");
 var $$Array     = require("bs-platform/lib/js/array.js");
 var Curry       = require("bs-platform/lib/js/curry.js");
 var $$String    = require("bs-platform/lib/js/string.js");
+var Caml_int64  = require("bs-platform/lib/js/caml_int64.js");
 var Pervasives  = require("bs-platform/lib/js/pervasives.js");
 var Caml_string = require("bs-platform/lib/js/caml_string.js");
 
@@ -39,6 +40,14 @@ function charsOfString(s) {
       
     }
   };
+}
+
+function mod64(x, y) {
+  var x$1 = x;
+  while(Caml_int64.gt(x$1, y)) {
+    x$1 = Caml_int64.sub(x$1, y);
+  };
+  return x$1;
 }
 
 function stringOfChars(chars) {
@@ -128,6 +137,7 @@ exports.splitString   = splitString;
 exports.linesOfString = linesOfString;
 exports.wordsOfString = wordsOfString;
 exports.charsOfString = charsOfString;
+exports.mod64         = mod64;
 exports.stringOfChars = stringOfChars;
 exports.zip2          = zip2;
 exports.range         = range;

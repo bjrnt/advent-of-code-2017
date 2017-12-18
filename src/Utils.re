@@ -9,6 +9,14 @@ let charsOfString = (s) => {
   exp(String.length(s) - 1, [])
 };
 
+let mod64 = (x: int64, y: int64) => {
+  let x = ref(x);
+  while(x^ > y) {
+    x := Int64.sub(x^,y);
+  };
+  x^
+};
+
 let stringOfChars = (chars: list(char)) : string =>
   List.map(String.make(1), chars) |> String.concat("");
 
