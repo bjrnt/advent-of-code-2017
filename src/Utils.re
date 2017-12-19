@@ -11,8 +11,8 @@ let charsOfString = (s) => {
 
 let mod64 = (x: int64, y: int64) => {
   let x = ref(x);
-  while(x^ > y) {
-    x := Int64.sub(x^,y);
+  while (x^ > y) {
+    x := Int64.sub(x^, y)
   };
   x^
 };
@@ -64,7 +64,13 @@ function(s) {
 let loadInput: string => string = [%bs.raw
   {|
   function (filename) {
-    return require('fs').readFileSync(`${__dirname}/inputs/${filename}.txt`).toString().trim();
+    return require('fs').readFileSync(`${__dirname}/inputs/${filename}.txt`).toString();
   }
 |}
 ];
+
+let rec indexOf = (e, xs) =>
+  switch xs {
+  | [] => raise(Failure("Couldn't find element"))
+  | [x, ...xs] => x === e ? 0 : 1 + indexOf(e, xs)
+  };
